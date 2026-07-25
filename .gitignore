@@ -1,0 +1,26 @@
+# Local machine preferences (never ship)
+USER.md
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.idea/
+.vscode/
+
+# Local test / temp
+*.tmp
+._tidy_*
+.temp/
+tmp/

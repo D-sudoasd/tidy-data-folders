@@ -1,0 +1,5 @@
+# Python >= 3.10 (uses str | None syntax in path_safety.py)
+# Optional extractors — install what you need
+pypdf>=4.0
+python-docx>=1.0
+python-pptx>=0.6.21
