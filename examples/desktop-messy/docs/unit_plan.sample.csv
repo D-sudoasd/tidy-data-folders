@@ -1,0 +1,5 @@
+plan_version,plan_id,row_id,approved,src,dst,kind,action,reason
+2,demo_desktop_v1,1,false,loose/main.pdf,ProjectDemo/papers/main.pdf,move,move,demo paper into project home
+2,demo_desktop_v1,2,false,loose/meeting_notes.docx,ProjectDemo/notes/meeting_notes.docx,move,move,demo notes into project home
+2,demo_desktop_v1,3,false,loose/ChatGPT_fake.png,_inbox/screenshots/ChatGPT_fake.png,move,move,screenshot to inbox
+2,demo_desktop_v1,4,false,loose/random_scan.pdf,_inbox/misc/random_scan.pdf,move,move,ambiguous PDF to inbox

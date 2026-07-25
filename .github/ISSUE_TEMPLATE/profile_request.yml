@@ -1,0 +1,26 @@
+name: Profile / domain layout
+description: Request a new layout profile (e.g. new instrument or lab convention)
+title: "[profile] "
+labels: ["enhancement", "profile"]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Suggested profile id
+      placeholder: "e.g. saxs-beamline"
+    validations:
+      required: true
+  - type: textarea
+    id: signals
+    attributes:
+      label: Detection signals
+      description: File types, folder names, sample ID patterns
+    validations:
+      required: true
+  - type: textarea
+    id: spine
+    attributes:
+      label: Desired numbered spine
+      placeholder: "01_raw/ 02_processed/ ..."
+    validations:
+      required: true

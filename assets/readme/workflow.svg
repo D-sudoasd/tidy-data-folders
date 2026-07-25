@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 220" width="100%" role="img" aria-label="Workflow: Survey Plan Approve Execute Audit">
+  <rect width="1200" height="220" rx="16" fill="#0f172a"/>
+  <defs>
+    <style>
+      .lab { font-family: ui-sans-serif, system-ui, Segoe UI, sans-serif; font-size: 18px; font-weight: 600; fill: #f1f5f9; }
+      .sub { font-family: ui-monospace, Consolas, monospace; font-size: 12px; fill: #94a3b8; }
+    </style>
+  </defs>
+  <!-- steps -->
+  <rect x="40" y="50" width="180" height="120" rx="12" fill="#1e293b" stroke="#38bdf8" stroke-width="2"/>
+  <text class="lab" x="70" y="100">1 Survey</text>
+  <text class="sub" x="60" y="130">inventory.ps1</text>
+  <text class="sub" x="60" y="150">counts · profile</text>
+
+  <path d="M230 110 H270" stroke="#64748b" stroke-width="3" marker-end="url(#m)"/>
+  <rect x="280" y="50" width="180" height="120" rx="12" fill="#1e293b" stroke="#fbbf24" stroke-width="2"/>
+  <text class="lab" x="320" y="100">2 Plan</text>
+  <text class="sub" x="300" y="130">unit table · risks</text>
+  <text class="sub" x="300" y="150">doc rename CSV</text>
+
+  <path d="M470 110 H510" stroke="#64748b" stroke-width="3"/>
+  <rect x="520" y="50" width="180" height="120" rx="12" fill="#1e293b" stroke="#34d399" stroke-width="2"/>
+  <text class="lab" x="545" y="100">3 Approve</text>
+  <text class="sub" x="540" y="130">approved=true</text>
+  <text class="sub" x="540" y="150">row by row</text>
+
+  <path d="M710 110 H750" stroke="#64748b" stroke-width="3"/>
+  <rect x="760" y="50" width="180" height="120" rx="12" fill="#1e293b" stroke="#a78bfa" stroke-width="2"/>
+  <text class="lab" x="790" y="100">4 Execute</text>
+  <text class="sub" x="780" y="130">apply_moves</text>
+  <text class="sub" x="780" y="150">apply_doc_renames</text>
+
+  <path d="M950 110 H990" stroke="#64748b" stroke-width="3"/>
+  <rect x="1000" y="50" width="160" height="120" rx="12" fill="#1e293b" stroke="#fb7185" stroke-width="2"/>
+  <text class="lab" x="1030" y="100">5 Audit</text>
+  <text class="sub" x="1020" y="130">post_audit</text>
+  <text class="sub" x="1020" y="150">PASS / FAIL</text>
+</svg>

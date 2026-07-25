@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320" width="100%" role="img" aria-label="Before messy root vs after map-first layout">
+  <rect width="1200" height="320" rx="16" fill="#0f172a"/>
+  <text x="60" y="48" fill="#f87171" font-family="ui-sans-serif,system-ui,sans-serif" font-size="22" font-weight="700">Before — root dump</text>
+  <text x="640" y="48" fill="#34d399" font-family="ui-sans-serif,system-ui,sans-serif" font-size="22" font-weight="700">After — map-first</text>
+  <rect x="40" y="70" width="520" height="220" rx="12" fill="#1e293b" stroke="#7f1d1d" stroke-width="1.5"/>
+  <text x="60" y="105" fill="#fca5a5" font-family="ui-monospace,Consolas,monospace" font-size="14">main.pdf · main (1).pdf · 新建文件夹</text>
+  <text x="60" y="135" fill="#fca5a5" font-family="ui-monospace,Consolas,monospace" font-size="14">ChatGPT Image….png · 未命名.opju</text>
+  <text x="60" y="165" fill="#fca5a5" font-family="ui-monospace,Consolas,monospace" font-size="14">ProjectA_v3/ · ProjectA_old/ · tmp/</text>
+  <text x="60" y="195" fill="#fca5a5" font-family="ui-monospace,Consolas,monospace" font-size="14">random.zip · invoice_scan.pdf</text>
+  <text x="60" y="235" fill="#94a3b8" font-family="ui-sans-serif,system-ui,sans-serif" font-size="14">Same theme scattered · hard to find CURRENT</text>
+  <rect x="620" y="70" width="540" height="220" rx="12" fill="#1e293b" stroke="#065f46" stroke-width="1.5"/>
+  <text x="640" y="105" fill="#a7f3d0" font-family="ui-monospace,Consolas,monospace" font-size="14">README.md  ← open-first ★</text>
+  <text x="640" y="135" fill="#a7f3d0" font-family="ui-monospace,Consolas,monospace" font-size="14">_projects/ProjectA/   (CURRENT + archive)</text>
+  <text x="640" y="165" fill="#a7f3d0" font-family="ui-monospace,Consolas,monospace" font-size="14">_inbox/YYYYMMDD/      (ambiguous scoop)</text>
+  <text x="640" y="195" fill="#a7f3d0" font-family="ui-monospace,Consolas,monospace" font-size="14">docs/ · MOVE_LOG.csv · 99_archive/</text>
+  <text x="640" y="235" fill="#94a3b8" font-family="ui-sans-serif,system-ui,sans-serif" font-size="14">One home per project · leaves renamed only if approved</text>
+</svg>

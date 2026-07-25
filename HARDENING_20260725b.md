@@ -1,5 +1,8 @@
 # Hardening pass 2026-07-25b
 
+> **User-facing safety summary:** see [docs/SAFETY.md](docs/SAFETY.md).  
+> This file is the **engineering** changelog for the hardening batch.
+
 Implements review batch-1 (R-01…R-08) plus selected batch-2 UX fixes against
 `tidy-data-folders_hardened_review_2026-07-25.md`.
 
