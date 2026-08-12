@@ -52,9 +52,9 @@ Machine-readable discovery is available through:
 ```text
 python scripts/tidy.py doctor --json
 python scripts/tidy.py survey --root <folder> --json
+```
 
 `doctor --json` includes `schema_version: 1`; additive fields may be introduced without changing the meaning of existing fields.
-```
 
 ## Data contracts
 
