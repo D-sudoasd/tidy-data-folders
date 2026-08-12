@@ -22,3 +22,7 @@ jobs:
         run: python -m pip install --upgrade pip
       - name: Run unit tests
         run: python -m unittest discover -s tests -v
+      - name: Smoke-test unified CLI
+        run: |
+          python -m py_compile scripts/tidy.py
+          python scripts/tidy.py --help
