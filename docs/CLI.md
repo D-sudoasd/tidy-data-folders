@@ -5,7 +5,7 @@
 ## Requirements
 
 - Python 3.10 or newer
-- PowerShell 7 (`pwsh`) for survey, unit moves, empty-directory sweep, and audit
+- PowerShell 7 (`pwsh`) for unit moves, empty-directory sweep, and audit
 - Optional document extractors from `requirements.txt` for PDF, DOCX, and PPTX signals
 
 Run the environment check first:
@@ -46,7 +46,18 @@ Use JSON when an agent or another tool will consume the inventory:
 python scripts/tidy.py survey --root "D:\work\project" --json
 ```
 
-Record `file_count` before execution when count sealing is required.
+The JSON always includes `file_count`, `document_class_count`, `suggested_profile`, `phase_d_policy`, `extensions`, `existing_maps`, and `listing`. Additive fields describe competing backgrounds without renaming those keys:
+
+- `schema_version` (`1`)
+- `profile_confidence` (`high` / `contested` / `low`)
+- `background_competition` (true when more than one background family matched)
+- `layout_guidance` (`use_named_profile` or `adapt_from_observed`)
+- `observed_clusters` (documents, images, scientific data, …)
+- `competing_backgrounds` / `background_signals`
+
+When several backgrounds compete, `suggested_profile` is `generic` unless one family dominates. Do not treat a first regex hit as a locked spine.
+
+Record `file_count` before execution when count sealing is required. Survey does not require PowerShell 7.
 
 ### 2. Create a unit-plan template
 

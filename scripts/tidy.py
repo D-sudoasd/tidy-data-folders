@@ -22,12 +22,13 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Callable, Sequence
 
-VERSION = "0.3.0"
+VERSION = "0.3.1"
 MIN_PYTHON = (3, 10)
 SCRIPT_DIR = Path(__file__).resolve().parent
 
 REQUIRED_SCRIPTS = (
     "inventory.ps1",
+    "survey_signals.py",
     "apply_moves.ps1",
     "empty_shell_sweep.ps1",
     "post_audit.ps1",
@@ -280,32 +281,31 @@ def command_doctor(args: argparse.Namespace) -> int:
 
 
 def build_survey_command(
-    *, root: Path, pwsh: str, json_output: bool, max_depth: int
+    *, root: Path, python: str, json_output: bool, max_depth: int
 ) -> list[str]:
     command = [
-        pwsh,
-        "-NoProfile",
-        "-File",
-        str(_script("inventory.ps1")),
-        "-Root",
+        python,
+        str(_script("survey_signals.py")),
+        "--root",
         str(root),
-        "-MaxDepthList",
+        "--max-depth",
         str(max_depth),
     ]
     if json_output:
-        command.append("-Json")
+        command.append("--json")
     return command
 
 
 def command_survey(args: argparse.Namespace) -> int:
+    from survey_signals import collect_survey, format_survey_text
+
     root = _existing_root(args.root)
-    command = build_survey_command(
-        root=root,
-        pwsh=_pwsh_path(),
-        json_output=args.json,
-        max_depth=args.max_depth,
-    )
-    return _run(command)
+    payload = collect_survey(root, max_depth=args.max_depth)
+    if args.json:
+        print(json.dumps(payload, ensure_ascii=False, indent=2))
+    else:
+        print(format_survey_text(payload, max_depth=args.max_depth))
+    return 0
 
 
 def _csv_header(path: Path) -> tuple[str, ...]:

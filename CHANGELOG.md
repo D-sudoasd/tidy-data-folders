@@ -2,6 +2,26 @@
 
 All notable changes to this project are documented here.
 
+## [0.3.1] — 2026-08-17
+
+### Added
+
+- `scripts/survey_signals.py`: shipped survey / background-signal path used by `python scripts/tidy.py survey`
+- Additive survey JSON fields (existing keys unchanged): `schema_version`, `profile_confidence`, `background_competition`, `layout_guidance`, `observed_clusters`, `competing_backgrounds`, `background_signals`
+- Unit tests that call the shipped survey function on literature, desktop, scientific/data-heavy, generic, and mixed trees
+
+### Changed
+
+- Mixed or unmatched folders no longer lock to the first SXRD / literature regex; competing backgrounds are reported and `suggested_profile` stays `generic` unless one family dominates
+- Desktop-dump detection uses mixed dump composition, not a substring match on `Desktop` in the path
+- `SKILL.md` routes agents through `python scripts/tidy.py`, intent → mode, JSON survey, and mixed-folder adaptation
+- `survey` no longer requires PowerShell 7; `inventory.ps1` forwards to the same Python signal module
+- Profile reference explains independent background scoring and how to adapt unknown trees
+
+### Security
+
+- Mutation safety is unchanged: preview remains the default, only `approved=true` rows execute, `src`/`dst` stay root-relative, data files are never auto-deleted, and the 12-column `MOVE_LOG` header is unchanged
+
 ## [0.3.0] — 2026-08-12
 
 ### Added

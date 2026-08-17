@@ -100,8 +100,8 @@ Do not add, reorder, or remove fields without updating every producer, consumer,
 SKILL.md                  Agent workflow and hard rules
 AGENTS.md                 Contributor/agent orientation
 scripts/tidy.py           Unified safe launcher
-scripts/*.ps1             Windows inventory, moves, sweep, audit, path scan
-scripts/*.py              Document pipeline and shared safety helpers
+scripts/*.ps1             Windows moves, sweep, audit, path scan; inventory wrapper
+scripts/*.py              Survey signals, document pipeline, and shared safety helpers
 docs/CLI.md               Human command-line guide
 docs/ARCHITECTURE.md      Data flow and component boundaries
 docs/SAFETY.md            User-facing safety contract

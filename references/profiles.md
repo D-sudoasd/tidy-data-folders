@@ -1,20 +1,36 @@
 # Layout profiles
 
-Pick **one** profile from signals (Step 0). Adapt numbers; keep roles.
+Do **not** pick the first regex hit. Survey scores literature, desktop, scientific, and manuscript backgrounds independently (`python scripts/tidy.py survey --root <folder> --json`). Use a named spine only when one background wins clearly. When `background_competition` is true or the folder is unmatched, adapt slots from `observed_clusters` — do not force `sxrd-texture` or `literature-dump`.
 
 ## Signal → profile
 
-| Signals | Profile |
-|---------|---------|
-| `.cbf` + `.esg` + `texture_*` / pole figure / `omega` rotation | **sxrd-texture** |
-| `Az_*.txt` + tensile / LD·TD·Full + MAUD series / peakfit | **sxrd-tensile** |
-| `Article_*` / `Letter_*` / many `.docx` + `00_current_manuscript` smell | **manuscript-heavy** |
-| Desktop/Downloads mix: png/pdf/zip/exe/loose docs | **desktop-dump** |
-| Mostly PDF/DOCX; publisher ids (`1-s2.0-`, `s41598-`, `metals-##-`), `main.pdf`, short junk names | **literature-dump** |
-| Else | **generic** |
+| Background family | When it fires | Named profile if it is the sole / dominant winner |
+|-------------------|---------------|---------------------------------------------------|
+| literature | Mostly PDF/DOCX; publisher ids (`1-s2.0-`, `s41598-`, `metals-##-`), `main.pdf`, short junk names | **literature-dump** |
+| desktop | Mixed images + docs + archives/installers, screenshot-like names, `loose/`/`inbox/` dumps; or a true `Desktop` / `Downloads` / `桌面` path **component** | **desktop-dump** |
+| scientific (SXRD texture) | `.cbf` + `.esg` / `texture_*` / `omega` / pole figure, and no close competing family | **sxrd-texture** |
+| scientific (SXRD tensile) | `Az_*.txt` + tensile / MAUD / peakfit / `.fit`, and no close competing family | **sxrd-tensile** |
+| scientific (unnamed) | Data-heavy `.dat` / `.xy` / `.chi` / `.cbf` clusters without a named SXRD pattern | **generic** — keep scientific leaves; adapt slots |
+| manuscript | `Article_*` / `Letter_*` / `CURRENT` + manuscript smell | **manuscript-heavy** |
+| several families, close scores | Mixed tree | **generic** + report `competing_backgrounds` |
+| else | Unmatched | **generic** |
+
+Desktop is a **content** mix, not a path that merely contains the letters `Desktop` (so `desktop-messy` is not a user Desktop by name alone).
 
 Also read [domain-slots-sxrd.md](domain-slots-sxrd.md) for tensile/MAUD detail.  
 Document rename policy: [doc-identity.md](doc-identity.md).
+
+## Mixed / unknown
+
+When survey says `layout_guidance: adapt_from_observed`:
+
+1. Group what is already there (`observed_clusters` + listing).
+2. Propose only slots that have evidence (documents, images, scientific data, archives).
+3. Keep existing folder names when they already work.
+4. Leave scientific leaves untouched.
+5. Ask before applying a named domain spine.
+
+Do not invent SAXS / chemistry / generic-XRD first-class profiles.
 
 ---
 
@@ -84,7 +100,7 @@ _inbox/YYYYMMDD_desktop/   # or user library
 ```
 
 Do not invent project homes. Offer promote into real trees only after user names target.  
-**Phase D:** on for files under `docs/` (and root loose PDFs if user asks); not for `images/`.
+**Phase D:** on for files under `docs/` (and root loose PDFs if user asks); not for `images/`. Detect this profile from mixed dump composition, not only from a Desktop-shaped path name.
 
 ---
 

@@ -18,7 +18,7 @@ The recommended public interface is `scripts/tidy.py`. Low-level scripts remain 
 |---|---|---|
 | `doctor` | `--json` | Runtime, script-bundle, and optional extractor checks |
 | `guide` | — | Safe workflow summary |
-| `survey` | `--root` `--json` `--max-depth` | Delegates to `inventory.ps1` |
+| `survey` | `--root` `--json` `--max-depth` | Calls `survey_signals.py` (no PowerShell required) |
 | `init-unit-plan` | `--root` `--out` `--plan-id` `--empty` `--overwrite` | Atomic unapproved unit-plan template |
 | `plan-docs` | `--root` `--out` `--meta-out` `--profile` `--slot-layout` | Extracts metadata and writes an unapproved document plan |
 | `apply-moves` | `--root` `--plan` `--move-log` `--execute` | Delegates to `apply_moves.ps1`; preview by default |
@@ -28,13 +28,22 @@ The recommended public interface is `scripts/tidy.py`. Low-level scripts remain 
 
 Relative plan and log paths are resolved from `--root` and cannot escape it. Explicit absolute control-file paths remain supported. The unified interface does not expose maintenance-only unsafe options.
 
+## survey_signals.py
+
+| | |
+|---|---|
+| **Purpose** | Count files, list extensions, score competing backgrounds, suggest profile |
+| **Key args** | `--root` · `--json` · `--max-depth` |
+| **Public JSON** | Existing: `file_count`, `document_class_count`, `suggested_profile`, `phase_d_policy`, `extensions`, `existing_maps`, `listing`. Additive: `schema_version`, `profile_confidence`, `background_competition`, `layout_guidance`, `observed_clusters`, `competing_backgrounds`, `background_signals` |
+| **Exit** | `0` · `2` missing root |
+
 ## inventory.ps1
 
 | | |
 |---|---|
-| **Purpose** | Count files, list extensions, detect document signals, suggest profile |
+| **Purpose** | Compatibility wrapper; forwards to `survey_signals.py` |
 | **Key params** | `-Root <path>` · `-Json` · `-MaxDepthList` |
-| **Exit** | `0` |
+| **Exit** | Underlying Python exit code |
 
 ## apply_moves.ps1
 
