@@ -100,6 +100,18 @@ class CommandBuilderTests(unittest.TestCase):
         self.assertIn("-RequireReadme", command)
         self.assertIn("-CheckPaths", command)
 
+    def test_survey_command_uses_python_signal_module(self):
+        command = tidy.build_survey_command(
+            root=self.root,
+            python="python",
+            json_output=True,
+            max_depth=2,
+        )
+        joined = " ".join(command)
+        self.assertIn("survey_signals.py", joined)
+        self.assertIn("--json", command)
+        self.assertNotIn("inventory.ps1", joined)
+
 
 class DoctorTests(unittest.TestCase):
     def test_doctor_payload_is_machine_readable(self):

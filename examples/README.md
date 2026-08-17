@@ -15,9 +15,7 @@ Tiny fake desktop scoop:
 ### Try inventory (read-only)
 
 ```powershell
-$Skill = "...\tidy-data-folders\scripts"
-$Root  = "...\tidy-data-folders\examples\desktop-messy"
-pwsh -File "$Skill\inventory.ps1" -Root $Root
+python scripts/tidy.py survey --root examples/desktop-messy --json
 ```
 
 ### Apply for real (optional)
